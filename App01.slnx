@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Aplicacion/Aplicacion.csproj" Id="137f31c8-e31f-44fe-b3b3-18d5522278b0" />
+  <Project Path="App01/App01.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="Dominio/Dominio.csproj" Id="ea806e71-de3f-4f7d-88ac-6da5e2d45367" />
+  <Project Path="Infraestructura/Infraestructura.csproj" Id="0a9fab09-6ecc-4f9b-a49b-373c78ef323e" />
+</Solution>
