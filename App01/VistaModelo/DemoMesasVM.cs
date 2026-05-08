@@ -33,7 +33,7 @@ namespace App01.VistaModelo
         [RelayCommand]
         private void CargarMesasDTO()
         {
-            listaMesasDTO = new ObservableCollection<MesaDTO>{
+            ListaMesasDTO = new ObservableCollection<MesaDTO>{
                 new MesaDTO{IdMesa = 1, NumeroMesa = 1, Capacidad = 4, EstadoId = 1, EstadoMesa = "libre", NombreColor = "DarkGreen" },
                 new MesaDTO{IdMesa = 2, NumeroMesa = 2, Capacidad = 4, EstadoId = 2, EstadoMesa = "ocupado", NombreColor = "Red" },
                 new MesaDTO{IdMesa = 3, NumeroMesa = 3, Capacidad = 4, EstadoId = 3, EstadoMesa = "reservado", NombreColor = "Violet"

@@ -12,7 +12,7 @@
         <Button Text="Cargar Mesas"
                 HorizontalOptions="Center"
                 Command="{Binding CargarMesasDTOCommand}"/>
-        <CollectionView ItemsSource="{Binding listaMesasDTO}">
+        <CollectionView ItemsSource="{Binding ListaMesasDTO}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Border StrokeThickness="1"
@@ -22,7 +22,7 @@
                         <StackLayout>
                         <Label Text="{Binding NumeroMesa}" FontSize="18" TextColor="White"/>
                         <Label Text="{Binding EstadoMesa}" FontSize="14" TextColor="White"/>
-                        <Label Text="{Binding CapacidadMesa}" FontSize="12" TextColor="White"/>
+                        <Label Text="{Binding Capacidad}" FontSize="12" TextColor="White"/>
                         </StackLayout>
                     </Border>
                 </DataTemplate>
