@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App01.Vistas.VistaDemoVxaml"
+             Title="VistaDemoVxaml">
+    <VerticalStackLayout>
+        <Label Text="LISTA DE MESAS"
+               FontAttributes="Bold"
+               FontSize="30"
+               HorizontalOptions="Center"
+               />
+        <Button Text="Cargar Mesas"
+                HorizontalOptions="Center"
+                Command="{Binding CargarMesasDTOCommand}"/>
+        <CollectionView ItemsSource="{Binding ListaMesasDTO}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border StrokeThickness="1"
+                            Stroke="LightGray" Padding="15"
+                            Margin="0.5"
+                            BackgroundColor="{Binding NombreColor}">        
+                        <StackLayout>
+                        <Label Text="{Binding NumeroMesa}" FontSize="18" TextColor="White"/>
+                        <Label Text="{Binding EstadoMesa}" FontSize="14" TextColor="White"/>
+                        <Label Text="{Binding Capacidad}" FontSize="12" TextColor="White"/>
+                        </StackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Aplicacion.CasosDeUso;
+using Microsoft.Extensions.Logging;
 
 namespace App01
 {
@@ -16,9 +17,10 @@ namespace App01
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
+                // Registrar los servicios de la app
+            builder.Services.AddTransient<ObtenerMesas>();
 #endif
-
             return builder.Build();
         }
     }

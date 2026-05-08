@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:App01.VistaModelo"
+    x:Class="App01.Vistas.VistaMesaVs"
+    Title="Gestión de Mesas">
+
+    <ContentPage.BindingContext>
+        <vm:VistaModeloMesas/>
+    </ContentPage.BindingContext>
+
+    <!-- LAYOUT PRINCIPAL EN GRID PARA DAR ALTURA AL COLLECTIONVIEW -->
+    <Grid RowDefinitions="Auto,Auto,Auto,*" Padding="15" RowSpacing="12">
+
+        <!-- FILA 0: TÍTULO -->
+        <Label 
+            Grid.Row="0"
+            Text="Gestión de Mesas"
+            FontSize="24"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"/>
+
+        <!-- FILA 1: LEYENDA -->
+        <HorizontalStackLayout 
+            Grid.Row="1"
+            Spacing="15" 
+            HorizontalOptions="Center">
+            <HorizontalStackLayout Spacing="5">
+                <BoxView Color="#2ECC71" WidthRequest="16" HeightRequest="16" CornerRadius="8" VerticalOptions="Center"/>
+                <Label Text="Libre" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="5">
+                <BoxView Color="#E74C3C" WidthRequest="16" HeightRequest="16" CornerRadius="8" VerticalOptions="Center"/>
+                <Label Text="Ocupada" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="5">
+                <BoxView Color="#F39C12" WidthRequest="16" HeightRequest="16" CornerRadius="8" VerticalOptions="Center"/>
+                <Label Text="Reservada" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+        <!-- FILA 2: BUSCADOR -->
+        <Grid 
+            Grid.Row="2" 
+            ColumnDefinitions="*,Auto" 
+            ColumnSpacing="10">
+            <Entry 
+                Grid.Column="0"
+                Placeholder="Buscar por número, ambiente o estado..."
+                Text="{Binding TextoBusqueda}"/>
+            <Button 
+                Grid.Column="1"
+                Text="Filtrar"
+                BackgroundColor="#3498DB"
+                TextColor="White"
+                CornerRadius="8"
+                Clicked="OnFiltrarClicked"/>
+        </Grid>
+
+        <!-- FILA 3: MESAS EN 2 COLUMNAS (ocupa todo el espacio restante) -->
+        <CollectionView 
+            Grid.Row="3"
+            ItemsSource="{Binding MesasFiltradas}"
+            SelectionMode="None">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout 
+                    Orientation="Vertical"
+                    Span="2"
+                    HorizontalItemSpacing="10"
+                    VerticalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border 
+                        Padding="15"
+                        BackgroundColor="{Binding ColorFondo}"
+                        StrokeShape="RoundRectangle 10"
+                        Stroke="Transparent">
+
+                        <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                            <Label 
+                                Text="{Binding Texto}"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                HorizontalOptions="Center"/>
+                            <Label 
+                                Text="{Binding Ambiente}"
+                                FontSize="13"
+                                TextColor="White"
+                                Opacity="0.85"
+                                HorizontalOptions="Center"/>
+                            <Label 
+                                Text="{Binding EstadoTexto}"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>
